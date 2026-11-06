@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: private-image-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: private-image-demo
+  template:
+    metadata:
+      labels:
+        app: private-image-demo
+    spec:
+      containers:
+        - name: nginx
+          image: umasravya/simple-python-flask-app:latest
+          ports:
+            - containerPort: 80
+
